@@ -19,7 +19,7 @@ do
 		done
 		sleep 100
 		# Force remove dead nodes from qhost (need to double check this works)
-#		sudo -- bash -c "SGE_ROOT=/opt/sge/; source /etc/profile.d/sge.sh;
-#		/opt/sge/bin/lx-amd64/qconf -dattr hostgroup hostlist $hostname @allhosts;
-#		/opt/sge/bin/lx-amd64/qconf -de $hostname"
+		sudo -- bash -c "SGE_ROOT=/opt/sge/; source /etc/profile.d/sge.sh;
+		/opt/sge/bin/lx-amd64/qconf -dattr hostgroup hostlist $hostname @allhosts;
+		/opt/sge/bin/lx-amd64/qconf -de $hostname"
 done
