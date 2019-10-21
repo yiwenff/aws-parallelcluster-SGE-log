@@ -2,6 +2,7 @@
 Auxiliary functions for running parallel jobs on AWS Parallelcluster using SGE
 
 **1. Dead Nodes and Jobs**
+
 **Problem identification**:
 When running SGE parallel jobs on AWS Parallelcluster using spot instances, instances get terminated/stopped and removed from host. However, instances stay as orphaned and corresponding jobs stay as fake running states.
 
