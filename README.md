@@ -18,4 +18,5 @@ This code automatically identifies the dead nodes and jobs attached to it. Dead 
 Reference [Releted issues]:
 
 https://github.com/aws/aws-parallelcluster/issues/1004
+
 https://github.com/aws/aws-parallelcluster/issues/1247
