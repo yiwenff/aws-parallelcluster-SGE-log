@@ -1,0 +1,25 @@
+#!/bin/bash
+SGE_ROOT=/opt/sge/
+# Check and force delete jobs that are at dead nodes
+# Grab the dead node private ip address
+for hostname in $(/opt/sge/bin/lx-amd64/qhost |
+	grep ' - ' |              # dead
+	grep -v global |          # ignore global
+		awk '{print $1}')
+do
+		# Grad the jobs submitted to the correpnding dead nodes
+		for J in $(qstat -u \* |
+					egrep ${hostname}\. |
+					awk '{print $1 "." $10}')
+		do
+					echo ${hostname} " is dead"
+					echo "Force delete job" $J
+					# Force delete dead jobs
+					sudo -u sgeadmin -i /opt/sge/bin/lx-amd64/qdel -f $J
+		done
+		sleep 100
+		# Force remove dead nodes from qhost (need to double check this works)
+#		sudo -- bash -c "SGE_ROOT=/opt/sge/; source /etc/profile.d/sge.sh;
+#		/opt/sge/bin/lx-amd64/qconf -dattr hostgroup hostlist $hostname @allhosts;
+#		/opt/sge/bin/lx-amd64/qconf -de $hostname"
+done
