@@ -16,4 +16,6 @@ It's the users' responsibility to delete dead nodes and jobs.
 This code automatically identifies the dead nodes and jobs attached to it. Dead jobs are forced deleted before removing dead nodes. The jobs attached to the live nodes will keep running.
 
 Reference [Releted issues]:
+
+https://github.com/aws/aws-parallelcluster/issues/1004
 https://github.com/aws/aws-parallelcluster/issues/1247
